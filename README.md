@@ -1,2 +1,2 @@
-# proyecto-cuit--1-
-# sitio web:  https://diegomartinw.github.io/proyecto-cuit--1-/
+# proyecto-cuit: ingresá tu dni y obtené tu cuit
+# sitio web: https://diegomartinw.github.io/proyecto-cuit1/
