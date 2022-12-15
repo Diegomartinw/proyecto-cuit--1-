@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto cuit</title>
+</head>
+
+<body>
+    <h1>Ingrese su género y DNI y obtenga su número de CUIT</h1>
+    <input type="radio" name="sexo" id="masc" value="Masculino">Masculino
+    <input type="radio" name="sexo" id="femenino" value="Femenino">Femenino
+    <input type="radio" name="sexo" id="empresa" value="Empresa">Empresa
+    <input type="number" name="" id="documento" placeholder="Ingrese su DNI">
+    <input type="button" value="CUIT" onclick="cuit()">
+    <div id="resultado"></div>
+
+    <script>
+
+        function cuit() {
+
+            let sexo = document.querySelectorAll('input[name="sexo"]:checked');
+            let documento = document.querySelector("#documento").value;
+            let sexo1 = [];
+            sexo.forEach((checkbox) => {
+                sexo1.push(checkbox.value);
+            });
+
+            output = [];
+            sNumber = documento.toString();
+            var codigo;
+
+            if (sexo1 == "Masculino") {
+                codigo = 20;
+            } else if (sexo1 == "Femenino") {
+                codigo = 27
+            } else { codigo = 30 }
+
+            var numero;
+            if (sexo1 == "Masculino") {
+                numero = 10;
+            } else if (sexo1 == "Femenino") {
+                numero = 38
+            } else { numero = 15 };
+
+
+            console.log(codigo);
+            console.log(numero);
+
+
+
+            // for (var i = 0, len = sNumber.length; i < len; i += 1) {   
+
+            // }
+            output.push(sNumber[0] * 3);
+            output.push(sNumber[1] * 2);
+            output.push(sNumber[2] * 7);
+            output.push(sNumber[3] * 6);
+            output.push(sNumber[4] * 5);
+            output.push(sNumber[5] * 4);
+            output.push(sNumber[6] * 3);
+            output.push(sNumber[7] * 2);
+
+            console.log(output);
+            console.log(sexo1);
+            console.log(documento);
+
+
+
+            let suma = 0;
+            for (var i = 0; i < output.length; i++) {
+                //var a = output[i].value;
+                suma += output[i];
+
+
+
+            }
+            console.log(suma);
+
+            var sumatotal = suma + numero;
+            console.log(sumatotal);
+
+            var z = Math.round(sumatotal / 11);
+            console.log(z);
+
+            var zfinal = 11 - (sumatotal - (z * 11));
+            console.log(zfinal);
+
+            if ((sumatotal - (z * 11)) === 0) {
+                zfinal = 0;
+            };
+
+            if ((sumatotal - (z * 11)) === 1) {
+                if (sexo1 == "Masculino") {
+                    zfinal = 9; codigo == 23;
+                } else if (sexo1 == "Femenino") {
+                    zfinal = 4; codigo == 23;
+                } else { codigo = zfinal;}
+
+            };
+
+
+
+
+
+            document.querySelector("#resultado").innerHTML = "El número de CUIT es " + codigo + documento + zfinal;
+
+
+
+
+
+
+
+
+        }
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>
